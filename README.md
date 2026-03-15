@@ -1,64 +1,66 @@
 # AI Playbook · AI for Engineering Teams
 
-面向企业研发团队的双语技术博客，聚焦 **AI 在研发流程中的落地方法、架构实践与组织推进路径**。
+A bilingual technical blog for engineering organizations, focused on **practical AI adoption in software delivery workflows, architecture, and team execution**.
 
-- 在线地址：[https://blog.pnpm.ai](https://blog.pnpm.ai)
-- 语言：中文 / English
-- 定位：企业研发 AI 落地方法论 + 可复用实践
+- Live site: [https://blog.pnpm.ai](https://blog.pnpm.ai)
+- Languages: English / Chinese
+- Positioning: practical AI playbooks and reusable engineering patterns
 
-## 站点内容方向
+Chinese version: [README-zh.md](README-zh.md)
 
-- 企业研发场景下的 AI 落地路线图
-- 需求分析、任务拆解、研发协同、复盘等流程实践
-- Agent 化协作模型与工程化架构设计
-- 可验证场景（MVP）到规模化推广的方法
+## Content Focus
 
-## 站点功能
+- AI adoption roadmaps for engineering teams
+- Workflow practices: requirement analysis, task decomposition, execution, and retrospectives
+- Agent-oriented collaboration models and engineering architecture
+- From validated MVP scenarios to scaled rollout
 
-- 双语路由（`/zh`、`/en`）
-- 首页 / 文章列表 / 文章详情 / 关于页
-- 标签聚合（`/[lang]/tags/[tag]`）
-- 全文搜索（静态索引）
-- RSS（`/rss.xml`）/ Sitemap（`/sitemap.xml`）/ Robots
+## Site Features
 
-## 技术栈
+- Bilingual routing (`/en`, `/zh`)
+- Home / Post List / Post Detail / About
+- Tag pages (`/[lang]/tags/[tag]`)
+- Full-text search (static index)
+- RSS (`/rss.xml`), Sitemap (`/sitemap.xml`), Robots
+
+## Tech Stack
 
 - Next.js 16 + Nextra 4 + MDX
 - TypeScript + React
-- Cloudflare Workers（免费版可部署方案）
-- GitHub Actions 自动部署
+- Cloudflare Workers (free-tier deployable setup)
+- GitHub Actions CI/CD
 
-## 本地开发
+## Local Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-默认访问：`http://localhost:3000/en`
+Default URL: `http://localhost:3000/en`
 
-## 构建与部署
+## Build and Deploy
 
 ```bash
-# 代码检查
+# Validate
 npm run check
 
-# 构建（会自动生成 robots/sitemap/rss）
+# Build (auto-generates robots/sitemap/rss)
 npm run build
 
-# 发布到 Cloudflare Workers
+# Deploy to Cloudflare Workers
 npm run deploy
 ```
 
-## 仓库结构
+## Project Structure
 
 ```text
 src/
-  app/           # 页面与路由
-  content/       # 博客内容（zh/en）
-  lib/           # 站点配置与内容读取逻辑
-  components/    # 业务组件
+  app/           # routes and pages
+  content/       # blog content (en/zh)
+  lib/           # site config and content utilities
+  components/    # UI components
 scripts/
-  generate-meta.mjs  # 构建时生成 robots/sitemap/rss
-worker-static.js     # Workers 轻量入口
+  generate-meta.mjs  # generates robots/sitemap/rss during build
+worker-static.js     # lightweight Workers entry
 ```
