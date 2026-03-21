@@ -1,0 +1,185 @@
+---
+title: "From Requirements to Retro: The Minimum Viable AI Collaboration Loop (MVP)"
+date: 2026-03-21
+summary: A two-week, executable, measurable, and reviewable AI collaboration loop that validates team-level impact beyond individual productivity gains.
+tags:
+  - AI Adoption
+  - MVP
+  - Engineering Workflow
+  - Agent Collaboration
+---
+
+# From Requirements to Retro: The Minimum Viable AI Collaboration Loop (MVP)
+
+Many teams are using AI, but the common outcome is: individuals move faster while team delivery barely changes.  
+The real bottleneck is not model capability. It is whether AI is embedded into the core R&D workflow as a stable loop.
+
+This post proposes a two-week minimum viable approach:  
+**run one end-to-end loop first, then decide whether to scale investment.**
+
+## 1. Why start with a minimum loop
+
+Large-scale rollout often fails for three reasons:
+
+- Scope is too broad, ownership is unclear, and the effort turns into slideware.
+- Metrics are missing, so value cannot be proven and sponsorship fades.
+- Workflow stays unchanged, and AI remains a code-generation add-on.
+
+So the first step is not “cover all teams.” It is proving one thing:  
+**in a real project, can AI consistently improve delivery speed while reducing rework?**
+
+## 2. Pilot scope definition
+
+Start with strict boundaries:
+
+| Dimension | In scope | Out of scope |
+|---|---|---|
+| Business type | Medium-complexity CRUD or process orchestration | Core payment path, hard real-time path |
+| Team size | One squad (5-8 people) | Multi-team cross-department programs |
+| Timeline | 2 weeks (one iteration) | Large projects over 4 weeks |
+| Tech stack | Familiar team stack | Projects in framework migration |
+
+Suggested roles:
+
+- Pilot Owner: accountable for outcomes and execution rhythm.
+- Tech Lead: controls technical gates.
+- Engineers: execute the AI workflow and refine templates.
+- QA/Test: validate quality and defect distribution.
+- PM: confirms requirement boundaries and acceptance criteria.
+
+## 3. End-to-end loop (requirements to retro)
+
+```text
+Requirement creation
+  -> Clarification (scope/acceptance/risk)
+  -> Task decomposition (subtasks/priority/dependencies)
+  -> AI-assisted implementation (code/test drafts/docs)
+  -> Self-testing and fixes (function/regression/edge cases)
+  -> Review submission and merge (PR template + checks)
+  -> Iteration retro (data comparison/root causes/action items)
+```
+
+Key points:
+
+- Every step needs explicit input and output. No verbal completion.
+- Every step needs an owner. No implicit responsibility.
+- Every step must be traceable. No unrepeatable “it worked this time.”
+
+## 4. Human-AI split and manual gates
+
+| Stage | AI responsibility | Human responsibility | Gate |
+|---|---|---|---|
+| Requirement clarification | Generate question list and risk prompts | Decide scope and priority | PM/Tech Lead confirms requirement card |
+| Task decomposition | Propose subtasks and dependency graph | Adjust granularity, assign owners | Owner confirms task cards |
+| Implementation | Draft code and test cases | Enforce architecture and critical paths | Developer self-check passes |
+| Pre-review | Draft PR description and self-test checklist | Fill evidence and edge cases | PR template completed |
+| Post-review | Draft fix suggestions | Final implementation and merge decision | Reviewer approval |
+| Retro | Aggregate data and cluster issues | Qualitative analysis and action decisions | Retro conclusion archived |
+
+Principle:  
+**AI provides options; humans make final decisions.**
+
+## 5. Standard templates (minimum set)
+
+### 5.1 Requirement card (input)
+
+```md
+# Requirement Card
+- Background:
+- Objective:
+- Non-goals:
+- Acceptance Criteria (testable):
+- Risks:
+- Deadline:
+```
+
+### 5.2 Task card (output)
+
+```md
+# Task Card
+- Task Name:
+- Owner:
+- Dependencies:
+- Estimated Effort:
+- Definition of Done (DoD):
+- Self-test Checklist:
+```
+
+### 5.3 PR template (output)
+
+```md
+## Change Summary
+## Impact Scope
+## Self-test Results
+## Risks and Rollback Plan
+## Linked Requirement/Task
+```
+
+### 5.4 Retro template (output)
+
+```md
+# Iteration Retro
+- Iteration Objective:
+- Metric Results (vs baseline):
+- What Worked:
+- Major Issues:
+- Root Cause Analysis:
+- Next Actions (owner + due date):
+```
+
+## 6. Metrics and data collection
+
+Track only four metrics in the first pilot:
+
+| Metric | Definition | Frequency | Success threshold (pilot) |
+|---|---|---|---|
+| Requirement-to-merge cycle time | Median duration from requirement confirmation to PR merge | Weekly | -15% or better |
+| Rework rate | Share of tasks requiring major changes after review starts | Weekly | -20% or better |
+| First-pass review rate | Share of PRs approved in first review round | Weekly | +10 percentage points |
+| Retro closure rate | Share of retro action items completed on time | End of iteration | 80%+ |
+
+Notes:
+
+- Do not track speed alone. Pair it with quality indicators.
+- Align metric definitions before collecting data.
+- Compare against your own historical baseline, not other teams.
+
+## 7. Two-week pilot result format (example)
+
+Example reporting format for your first retro:
+
+- Median cycle time: 6.5 days -> 5.2 days (-20%)
+- Rework rate: 31% -> 24% (-22.6%)
+- First-pass review rate: 42% -> 55% (+13pp)
+- Retro closure rate: no fixed mechanism -> 83%
+
+Main gains:
+
+- Task decomposition is clearer and blockers surface earlier.
+- PR descriptions improved significantly, reducing review overhead.
+- Retro moved from memory-based discussion to data-backed improvement.
+
+Main issues:
+
+- Template execution was unstable in the first three days and required strong push from the owner.
+- Some task boundaries remained vague, causing AI output to drift.
+- Early data collection depended on manual tracking and was costly.
+
+## 8. Scaling from one team to multiple teams
+
+Scale only after these conditions are met:
+
+1. Thresholds are achieved for two consecutive iterations.  
+2. Templates are standardized and new members can onboard within one week.  
+3. At least one non-pilot member can independently run the loop.
+
+Suggested rollout sequence:
+
+- First replicate to teams with the same stack.
+- Then expand to adjacent business domains.
+- Finally consider cross-department standardization.
+
+---
+
+The first-stage goal is not to replace engineering teams.  
+The first-stage goal is: **faster delivery, more stable quality, and a repeatable process.**
