@@ -39,3 +39,4 @@ pnpm-debug.log*
 /legacy/vite/node_modules
 /legacy/vite/dist
 tsconfig.tsbuildinfo
+.docs

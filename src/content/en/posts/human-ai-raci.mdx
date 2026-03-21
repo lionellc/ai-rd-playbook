@@ -1,0 +1,152 @@
+---
+title: "Human-AI RACI: Designing a Responsibility Matrix from Requirement to Review"
+date: 2026-03-21
+summary: A practical RACI matrix for Human-AI collaboration that makes each stage accountable, gated, and traceable from requirement clarification to PR review.
+tags:
+  - AI Adoption
+  - RACI
+  - Engineering Workflow
+  - Team Collaboration
+---
+
+# Human-AI RACI: Designing a Responsibility Matrix from Requirement to Review
+
+When teams adopt AI collaboration, the first failure is usually not tooling. It is responsibility ambiguity:
+
+- PM assumes technical convergence will be handled by AI and engineering automatically.
+- Engineers assume requirement boundaries were already settled upstream.
+- Reviewers assume quality risks were already blocked in self-testing.
+
+The result is that everyone participates, but no one is truly accountable.
+
+The fastest fix is not adding more process docs. It is making responsibility explicit.  
+This post provides a directly usable approach:
+**define a Human-AI RACI matrix from requirement to review, plus gate criteria and escalation rules.**
+
+## 1. Why start with RACI
+
+RACI is valuable because it reduces collaboration loss:
+
+- Less duplicated work: the same issue is not repeatedly reprocessed by multiple roles.
+- Faster decisions: each key stage has a clear A (accountable owner).
+- More stable delivery: every gate is traceable to owner and evidence.
+
+In Human-AI workflows, RACI adds one more benefit:
+**it makes AI-vs-human responsibility an explicit constraint instead of implicit blame transfer.**
+
+## 2. Standardize five core stages first
+
+Do not model the entire pipeline at once. Start with five stages:
+
+1. Requirement clarification
+2. Task decomposition
+3. Implementation and revisions
+4. Self-test and evidence
+5. Review submission and feedback
+
+Each stage must define four elements:
+
+- Input: what was handed over from previous stage.
+- Output: mandatory deliverable of this stage.
+- Gate: pass condition before moving forward.
+- Responsibility: RACI plus Human-AI boundary.
+
+## 3. Human-AI RACI matrix (ready to reuse)
+
+Role set: PM, Tech Lead, Engineer, QA, Reviewer, AI Agent.
+
+| Stage | PM | Tech Lead | Engineer | QA | Reviewer | AI Agent | Input | Output | Gate |
+|---|---|---|---|---|---|---|---|---|---|
+| Requirement clarification | A | C | I | I | I | R | Requirement draft | Requirement card (goal/non-goal/acceptance) | Card complete and acceptance is testable |
+| Task decomposition | C | A | R | I | I | R | Requirement card | Task cards (granularity/dependency/owner) | Subtasks independently deliverable and dependencies clear |
+| Implementation and revisions | I | C | A | I | I | R | Task cards | Code changes + change notes | Critical-path decisions confirmed by human, risks documented |
+| Self-test and evidence | I | C | A | R | I | R | Code changes | Self-test checklist + evidence | High-risk cases covered, failures resolved |
+| Review submission and feedback | I | C | R | C | A | R | PR draft + evidence | Reviewable PR + revision log | PR template complete and blocking issues closed |
+
+Usage rules:
+
+- One stage must have exactly one A.
+- AI Agent can be R (executor), but never A (final accountable owner).
+- Overusing C/I is a smell. More than three usually means blurry boundaries.
+
+## 4. Gate criteria must be checkable statements
+
+Weak statements:
+
+- “Requirement is mostly clear.”
+- “Testing is probably enough.”
+
+Checkable statements:
+
+- Requirement card has non-empty “Non-goals” with at least two excluded scopes.
+- Every task card includes DoD and rollback notes.
+- Each high-risk module includes at least one failure-path test.
+- PR description contains impact scope, verification result, risks, and rollback plan.
+
+Gate principles:
+
+- Checkable (pass/fail is objective)
+- Traceable (evidence can be linked)
+- Executable (team can keep doing it)
+
+## 5. Conflict and escalation mechanism
+
+Most disputes are responsibility conflicts, not opinion differences:
+
+- PM vs Tech Lead on scope boundaries
+- Engineer vs Reviewer on merge readiness
+- QA vs Engineering on risk priority
+
+Use a lightweight escalation protocol:
+
+1. Log disputes into `Conflict Log` with stage and issue clearly stated.
+2. Stage A makes a one-time decision within 24 hours.
+3. Cross-stage impact escalates to Pilot Owner, resolved within 48 hours.
+4. Every decision must be written back into RACI/Gate rules to prevent repeats.
+
+## 6. Seven-day rollout plan (lightweight)
+
+- Day 1: confirm roles and the five core stages.
+- Day 2: complete first RACI matrix draft.
+- Day 3: define gate statements for each stage.
+- Day 4-5: run one real requirement through the matrix.
+- Day 6: capture conflicts and missing items, revise matrix.
+- Day 7: freeze v1.0 and enter a two-week pilot.
+
+The objective is not perfect design on day one. It is getting everyone to execute by the same rules.
+
+## 7. Template: Human-AI RACI sheet (copy and use)
+
+```md
+# Human-AI RACI Sheet (v1.0)
+
+## Roles
+- PM:
+- Tech Lead:
+- Engineer:
+- QA:
+- Reviewer:
+- AI Agent:
+
+## Stage Matrix
+| Stage | R | A | C | I | Input | Output | Gate |
+|---|---|---|---|---|---|---|---|
+| Requirement clarification |  |  |  |  |  |  |  |
+| Task decomposition |  |  |  |  |  |  |  |
+| Implementation and revisions |  |  |  |  |  |  |  |
+| Self-test and evidence |  |  |  |  |  |  |  |
+| Review submission and feedback |  |  |  |  |  |  |  |
+
+## Escalation Rules
+- Stage-level decider (A):
+- Timeout threshold:
+- Escalation path:
+- Rule write-back location:
+```
+
+## 8. Closing
+
+The real watershed in AI collaboration is not model parameters. It is organizational clarity of responsibility.  
+Once RACI and gates become team conventions, process stability, quality control, and meaningful retros become possible.
+
+Clarify ownership first, then scale.
